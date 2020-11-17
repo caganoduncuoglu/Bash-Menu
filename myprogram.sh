@@ -15,7 +15,11 @@ while :
     read option
 
     case $option in
-      1) echo "Press enter for next iteration!" ; read;;
+      1) 
+        echo -n "Enter a file name: "; read fileName;
+        ./myprogram1.sh $fileName;
+        echo "Press enter for next iteration!" ; read;;
+        
       2) echo "Press enter for next iteration!" ; read;;
       3) echo "Press enter for next iteration!" ; read;;
       4) echo "Press enter for next iteration!" ; read;;
