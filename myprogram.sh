@@ -15,11 +15,18 @@ while :
     read option
 
     case $option in
-      1) echo "Press something for next iteration!" ; read;;
-      2) echo "Press something for next iteration!" ; read;;
-      3) echo "Press something for next iteration!" ; read;;
-      4) echo "Press something for next iteration!" ; read;;
-      5) echo "Press something for next iteration!" ; read;;
+      1) echo "Press enter for next iteration!" ; read;;
+      2) echo "Press enter for next iteration!" ; read;;
+      3) echo "Press enter for next iteration!" ; read;;
+      4) echo "Press enter for next iteration!" ; read;;
+      5)
+        echo -n "Recursive or not? (-R / N) "; read recursive;
+        echo -n "File name(s): "; read fileName;
+        case $recursive in
+         -R) ./myprogram5.sh -R $fileName ;;
+         *) ./myprogram5.sh $fileName;;
+        esac
+        echo "Press enter for next iteration!" ; read;;
       6) echo "Program stops!" ; exit 0 ;;
     esac
   done
