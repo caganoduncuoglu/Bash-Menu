@@ -19,9 +19,12 @@ while :
         echo -n "Enter a file name: "; read fileName;
         ./myprogram1.sh $fileName;
         echo "Press enter for next iteration!" ; read;;
-        
       2) echo "Press enter for next iteration!" ; read;;
-      3) echo "Press enter for next iteration!" ; read;;
+      3) 
+        echo -n "Enter a directory name (press enter for current directory): "
+        read dirName;
+        ./myprogram3.sh $dirName
+        echo "Press enter for next iteration!" ; read;;
       4) echo "Press enter for next iteration!" ; read;;
       5)
         echo -n "Recursive or not? (-R / N) "; read recursive;
