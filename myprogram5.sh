@@ -4,12 +4,17 @@
 #
 
 copy_individual() { # Copies matching files to copied folder.
-    mkdir -p copied
-
     case $1 in
     -R) word=$2 ;;
      *) word=$1 ;;
     esac
+
+    if [[ -f "$word" ]]
+    then
+        mkdir -p copied
+    else
+        return -1
+    fi
 
     for file in *;
     do  
