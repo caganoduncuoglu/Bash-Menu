@@ -17,7 +17,7 @@ while :
     case $option in
       1) 
         echo -n "Enter a file name: "; read fileName;
-        ./myprogram1.sh $fileName;
+       ./myprogram1.sh $fileName;
         echo "Press enter for next iteration!" ; read;;
       2) 
         echo -n "Enter a string containing values a-z or A-Z: "; read string;
@@ -30,7 +30,10 @@ while :
         read dirName;
         ./myprogram3.sh $dirName
         echo "Press enter for next iteration!" ; read;;
-      4) echo "Press enter for next iteration!" ; read;;
+      4) 
+       echo -n "Enter a file name: "; read fileName;
+       ./myprogram4.sh $fileName;
+       echo "Press enter for next iteration!" ; read;;
       5)
         echo -n "Recursive or not? (-R / N) "; read recursive;
         echo -n "File name(s): "; read fileName;
@@ -40,5 +43,7 @@ while :
         esac
         echo "Press enter for next iteration!" ; read;;
       6) echo "Program stops!" ; exit 0 ;;
+      *) echo "Please select valid option." ;
+      echo "Press enter for next iteration!" ; read;;
     esac
   done

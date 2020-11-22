@@ -4,6 +4,14 @@
 #
 
 filename="$1" #takes filename parameter
+
+ if [[ ! -f $filename ]]; #Error for not entering a valid file
+       then 
+ 		echo "$filename is not a valid file in your directory"
+	  	exit
+fi
+
+
 while read -n1 c; #read file character by character
 do
  

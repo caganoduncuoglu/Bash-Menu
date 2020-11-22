@@ -5,6 +5,13 @@
 
 
 filename="$1" #takes filename parameter
+
+ if [[ ! -f $filename ]]; #Error for not entering a valid file
+       then 
+ 		echo "$filename is not a valid file in your directory"
+	  	exit
+fi
+
 while read -r line; #read file line by line
 do
  
@@ -42,7 +49,6 @@ do
 
 	*) #Error case
 		echo "There is a number in the file which is not between 0-9!"
-        break
 		;;
         
   esac
