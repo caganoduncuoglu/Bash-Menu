@@ -38,8 +38,8 @@ while :
         echo -n "Recursive or not? (-R / N) "; read recursive;
         echo -n "File name(s): "; read fileName;
         case $recursive in
-         -R) ./myprogram5.sh -R $fileName ;;
-         *) ./myprogram5.sh $fileName;;
+         -R) ./myprogram5.sh -R "$fileName" ;;
+         *) ./myprogram5.sh "$fileName" ;;
         esac
         echo "Press enter for next iteration!" ; read;;
       6) echo "Program stops!" ; exit 0 ;;

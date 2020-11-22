@@ -8,28 +8,31 @@ copy_individual() { # Copies matching files to copied folder.
     -R) word=$2 ;;
      *) word=$1 ;;
     esac
+    
+    for file in *$word* # Records every file that is matched.
+    do
+        matchedFiles+="$file "
+    done
 
-    if [[ -f "$word" ]]
+    if [[ "$(ls -A)" && $matchedFiles != "$file " ]] # Checks there is at least one match.
     then
-        mkdir -p copied
+        mkdir -p copied # Creates copied directory.
     else
-        return -1
+        return -1 # Does not process under this directory.
     fi
 
-    for file in *;
+    for file in *; # Copy every matched file to copied folder.
     do  
         if [[ $file = *$word* ]]
         then
             cp $file copied
         fi
     done
-
-    
 }
 
 copy_recursively()
 {
-    copy_individual "$1" "$2" # Copying matching files under current folder.
+    copy_individual "$1" "$2" # Copies matching files under current folder.
     for dir in */;
     do
         if [[ $dir = "*/" || $dir = "copied/" ]] # I
@@ -39,7 +42,7 @@ copy_recursively()
             cd $dir
             if [[ $1 = -R ]]
             then
-                copy_recursively "$1" "$2" # Starting or proceeding recursive process.
+                copy_recursively "$1" "$2" # Starts or proceeds recursive process.
             fi
             cd ..
         fi
@@ -47,7 +50,7 @@ copy_recursively()
 }
 
 
-copy_recursively "$1" "$2" # Starting process.
+copy_recursively "$1" "$2" # Starts process.
 
 echo "Copy processes ending."
 echo 
